@@ -1,0 +1,62 @@
+<div id="body">
+  <p>
+    <span> רוצים להוסיף מתכון?</span>
+    <br>
+    מלאו את הפרטים בתחתית העמוד ,הוסיפו וכולם יוכלו להנות!!!
+    <br>
+  </p>
+  <form class="example-form" #myForm="ngForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>שם מתכון</mat-label>
+      <input matInput placeholder="לדוג' פיצה" [(ngModel)]="myRecipe.Name" name="name">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>תמונה</mat-label>
+      <input matInput placeholder="הכנס כתובת תמונה " [(ngModel)]="myRecipe.Image" name="image">
+    </mat-form-field>
+    <mat-form-field id="select" appearance="fill">
+      <mat-label>בחר קטגוריה</mat-label>
+      <mat-select disableRipple [(ngModel)]="myRecipe.CategoryId" name="CategoryId">
+        <mat-option value="1">עוגה</mat-option>
+        <mat-option value="2">עוגיות</mat-option>
+        <mat-option value="3">מאפים</mat-option>
+        <mat-option value="5">טארט</mat-option>
+        <mat-option value="5">מתוקים</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>דרגת קושי</mat-label>
+      <input matInput type="number" [(ngModel)]="myRecipe.Level" name="level">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>זמן הכנה</mat-label>
+      <input matInput type="number" [(ngModel)]="myRecipe.PreparationTimeInMinute" name="PreparationTimeInMinute">
+    </mat-form-field>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>רכיבים </mat-label>
+        <input matInput placeholder="לדוג' פיצה" #recipeIngrudients value="{{insVal}}" name="Ingrudient">
+      </mat-form-field>
+      <div class="example-button-container">
+        <button mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon"
+          (click)="addIngrudient(recipeIngrudients.value)">
+          <mat-icon>plus_one</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>הוראות הכנה </mat-label>
+        <input matInput placeholder="לדוג' פיצה" #recipeInstructions id="ins" value="{{insVal}}" name="Instruction">
+      </mat-form-field>
+
+      <div class="example-button-container">
+        <button mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon"
+          (click)="addInstruction(recipeInstructions.value)">
+          <mat-icon>plus_one</mat-icon>
+        </button>
+      </div>
+    </div>
+    <button id="add" mat-raised-button (click)="AddRecipe()">הוספה</button>
+  </form>
+</div>

@@ -1,0 +1,23 @@
+<div>
+    <h1>{{myRecipe.Name}}</h1>
+    <img src="assets/images/{{myRecipe.Image}}" />
+    <h2>{{myRecipe.PreparationTimeInMinute|time}}</h2>
+    <h2>{{myRecipe.CategoryId}}</h2>
+    <img *ngFor="let i of [].constructor(myRecipe.Level)" src="../../assets/icons/star (2).png" class="stars" />
+    <img *ngFor="let i of [].constructor(5-myRecipe.Level)" src="../../assets/icons/star (3).png" class="stars" />
+    <div>
+        <h1>products</h1>
+        <div *ngFor="let x of myRecipe.Layers">
+            <div>
+
+                <h2>{{x.Description}}</h2>
+                <h4 *ngFor="let y of x.Components">{{y}}</h4>
+            </div>
+        </div>
+        <div>
+            <h1>instructions</h1>
+            <h4 *ngFor="let y of myRecipe.Preparation; index as i">{{i+1}}. {{y}}</h4>
+        </div>
+    </div>
+    <input type="button" (click)="editRecipe()" value="לעריכת המתכון" *ngIf="myRecipe.UserId==getFromStorage" />
+</div>

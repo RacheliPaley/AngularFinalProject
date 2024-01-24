@@ -1,0 +1,20 @@
+<div id="body">
+  <p>
+    <!-- <p   id="title"> התחברות</p>  -->
+    <span>התחברות</span>
+    <br>
+    התחברו ותתחילו להנו
+    ת ממגוון עצום של תכנים קולינריים ומתכונים עם אלפי שעות וידאו, <br>להרכיב לעצמכם ספר מתכונים אישי עם המתכונים שהכי
+    אהבתם, לשתף בתמונות, להג
+    יב ולשאול שאלות.
+  </p>
+  <mat-form-field class="example-full-width">
+    <mat-label>שם</mat-label>
+    <input matInput #name>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>סיסמא</mat-label>
+    <input matInput #passward>
+  </mat-form-field>
+  <button mat-raised-button (click)="check(name.value,passward.value)">התחברות</button>
+</div>

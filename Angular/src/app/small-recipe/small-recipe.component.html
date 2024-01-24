@@ -1,0 +1,8 @@
+
+
+    <img (click) ="recipeDetails()" id="pic" src="../../assets/images/{{myRecipe.Image}}" alt="תמונה יפה מאד ">
+    <h2>{{myRecipe.Name}}</h2>
+    <p>{{myRecipe.PreparationTimeInMinute|time}}</p>
+    <!-- <p>{{myRecipe.Level|star}}</p> -->
+    <img *ngFor="let i of [].constructor(myRecipe.Level)" src="../../assets/icons/star (2).png"  class="stars"/>
+    <img *ngFor="let i of [].constructor(5-myRecipe.Level)" src="../../assets/icons/star (3).png"  class="stars"/>

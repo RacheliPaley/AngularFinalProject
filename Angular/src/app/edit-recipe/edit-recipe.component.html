@@ -1,0 +1,64 @@
+<div id=body>
+  <form class="example-form" #myForm="ngForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>שם מתכון</mat-label>
+      <input matInput value="{{myRecipe.Name}}" [(ngModel)]="myRecipe.Name" name="name">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>תמונה</mat-label>
+      <input matInput value="{{myRecipe.Image}}" [(ngModel)]="myRecipe.Image" name="image">
+    </mat-form-field>
+    <mat-form-field id="select" appearance="fill">
+      <mat-label>בחר קטגוריה</mat-label>
+      <mat-select disableRipple [(ngModel)]="myRecipe.CategoryId" name="CategoryId">
+        <mat-option value="1">עוגה</mat-option>
+        <mat-option value="2">עוגיות</mat-option>
+        <mat-option value="3">מאפים</mat-option>
+        <mat-option value="5">טארט</mat-option>
+        <mat-option value="5">מתוקים</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>דרגת קושי</mat-label>
+      <input matInput value="{{myRecipe.Level}}" type="number" [(ngModel)]="myRecipe.Level" name="level">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>זמן הכנה</mat-label>
+      <input matInput type="number" value="{{myRecipe.PreparationTimeInMinute}}"
+        [(ngModel)]="myRecipe.PreparationTimeInMinute" name="PreparationTimeInMinute">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>רכיבים </mat-label>
+      <div *ngFor="let y of myRecipe.Layers[0].Components; index as i">
+        <div> <input matInput type="text" value="{{y}}" #pre (change)="editComponent(i,pre.value)" /> </div>
+      </div>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>הוספת מוצר </mat-label>
+      <input matInput placeholder="לדוג' פיצה" #recipeIngrudients value="{{insVal}}" name="Ingrudient">
+    </mat-form-field>
+    <div class="example-button-container">
+      <button mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon"
+        (click)="addComponent(recipeIngrudients.value)">
+        <mat-icon>plus_one</mat-icon>
+      </button>
+    </div>
+    <mat-form-field class="example-full-width">
+      <mat-label>הוראות הכנה </mat-label>
+      <div *ngFor="let y of myRecipe.Preparation; index as i">
+        <input matInput type="text" value="{{y}}" #pre (change)="editInstruction(i,pre.value)" />
+      </div>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>הוספת הוראה </mat-label>
+      <input matInput placeholder="לדוג' פיצה" #recipeInstruction value="{{insVal}}" name="Instruction">
+    </mat-form-field>
+    <div class="example-button-container">
+      <button mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon"
+        (click)="addInstruction(recipeInstruction.value)">
+        <mat-icon>plus_one</mat-icon>
+      </button>
+    </div>
+    <button id="add" mat-raised-button (click)="saveChanges()">שמירת שינויים</button>
+  </form>
+</div>

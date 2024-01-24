@@ -1,0 +1,35 @@
+
+ <div  id="body">
+  <p>
+   <span>     רוצים להצטרף אלינו?</span>
+   <br>
+מלאו את הפרטים בתחתית העמוד והצטרפו אלינו. תוכלו להגיב על מתכונים,
+  <br> להעלות תמונות ולקבל מאתנו את המתכונים הכי שווים במייל ועוד המון הפתעות!
+
+אז למה אתם מחכים?
+<br>
+כבר נרשמתם לאתר בעבר? כל מה שאתם צריכים זה להתחבר
+
+  </p>
+ 
+<form  >
+
+<mat-form-field class="example-full-width">
+  <mat-label>שם</mat-label>
+  <input matInput   #name value={{temp}} >
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <mat-label>סיסמא</mat-label>
+  <input matInput name="password" #passward >
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <mat-label>כתובת</mat-label>
+  <input matInput  name="adress" #address >
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <mat-label>אמייל</mat-label>
+  <input matInput  name="mail" #mail >
+</mat-form-field>
+<button mat-raised-button (click)="addUser(name.value, address.value ,mail.value ,passward.value)" >התחברות</button>
+</form>
+</div>
